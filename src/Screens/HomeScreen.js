@@ -68,7 +68,6 @@ function HomeScreen(props) {
   const [isLoadingDet, setIsLoadingDet] = useState(false);
 
   const getMovieDetails = (event) => {
-    console.log(event);
     setIsLoadingDet(true);
     let name = event.target.nextSibling.textContent;
     const apiLink = `http://www.omdbapi.com/?i=${name}&apikey=8fd76efe`;
@@ -218,7 +217,7 @@ function HomeScreen(props) {
               </div>
             ) : null}
           </div>
-          {isLoadingDet ? (
+          {isLoadingDet || dataDet !== "" ? (
             <DetailsScreen data={dataDet} isLoading={isLoadingDet} />
           ) : null}
         </div>
